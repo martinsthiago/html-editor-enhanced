@@ -1,5 +1,6 @@
 import 'package:html_editor_enhanced/html_editor.dart';
-import 'package:html_editor_enhanced/src/widgets/html_editor_widget_web.dart';
+// ignore: avoid_web_libraries_in_flutter
+import 'dart:ui_web' as ui; // corrigido para dart:ui_web
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -49,8 +50,9 @@ class HtmlEditor extends StatelessWidget {
         initBC: context,
       );
     } else {
-      return Text(
-          'Non-Flutter Web environment detected, please make sure you are importing package:html_editor_enhanced/html_editor.dart');
+      return const Text(
+        'Non-Flutter Web environment detected, please make sure you are importing package:html_editor_enhanced/html_editor.dart',
+      );
     }
   }
 }
